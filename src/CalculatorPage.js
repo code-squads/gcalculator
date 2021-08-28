@@ -1,13 +1,11 @@
-import React from "react"
-import { 
-  Container 
-} from "./styledComponents/CalculatorPage";
+import React from "react";
+import { Container } from "./styledComponents/CalculatorPage";
 import Table from "./Table";
 
 const DUMMY = [
   {
-    courseCode: 'CO19202',
-    courseTitle: 'Programming in c++',
+    courseCode: "CO19202",
+    courseTitle: "Programming in c++",
     theory: {
       minMarks: 40,
       maxMarks: 100,
@@ -27,11 +25,11 @@ const DUMMY = [
       minMarks: 10,
       maxMarks: 25,
       earnedMarks: 24,
-    }
+    },
   },
   {
-    courseCode: 'CO19203',
-    courseTitle: 'Computer Hardware and Maintenance',
+    courseCode: "CO19203",
+    courseTitle: "Computer Hardware and Maintenance",
     theory: {
       minMarks: 0,
       maxMarks: 0,
@@ -51,11 +49,11 @@ const DUMMY = [
       minMarks: 40,
       maxMarks: 50,
       earnedMarks: 46,
-    }
+    },
   },
   {
-    courseCode: 'CO19204',
-    courseTitle: 'Data Structures',
+    courseCode: "CO19204",
+    courseTitle: "Data Structures",
     theory: {
       minMarks: 40,
       maxMarks: 100,
@@ -75,11 +73,11 @@ const DUMMY = [
       minMarks: 10,
       maxMarks: 25,
       earnedMarks: 24,
-    }
+    },
   },
   {
-    courseCode: 'HU19101',
-    courseTitle: 'Communication Skills',
+    courseCode: "HU19101",
+    courseTitle: "Communication Skills",
     theory: {
       minMarks: 40,
       maxMarks: 100,
@@ -99,11 +97,11 @@ const DUMMY = [
       minMarks: 10,
       maxMarks: 25,
       earnedMarks: 23,
-    }
+    },
   },
   {
-    courseCode: 'IT19204',
-    courseTitle: 'Digital Techniques',
+    courseCode: "IT19204",
+    courseTitle: "Digital Techniques",
     theory: {
       minMarks: 40,
       maxMarks: 100,
@@ -123,11 +121,11 @@ const DUMMY = [
       minMarks: 10,
       maxMarks: 25,
       earnedMarks: 24,
-    }
+    },
   },
   {
-    courseCode: 'SC19110',
-    courseTitle: 'Engineering Mathematics',
+    courseCode: "SC19110",
+    courseTitle: "Engineering Mathematics",
     theory: {
       minMarks: 40,
       maxMarks: 100,
@@ -147,8 +145,8 @@ const DUMMY = [
       minMarks: 0,
       maxMarks: 0,
       earnedMarks: 0,
-    }
-  }
+    },
+  },
 
   // {
   //   courseCode: '',
@@ -174,14 +172,14 @@ const DUMMY = [
   //     earnedMarks: ,
   //   }
   // }
-]
+];
 
 const CalculatorPage = () => {
   return (
     <Container>
-        <Table DATA={DUMMY}/>
+      <Table DATA={DUMMY} />
     </Container>
-  )
-}
+  );
+};
 
 export default CalculatorPage;
