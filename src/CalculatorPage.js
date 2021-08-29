@@ -1,6 +1,7 @@
 import React from "react";
 import { Container } from "./styledComponents/CalculatorPage";
 import Table from "./Table";
+import Header from "./Header";
 
 const DUMMY = [
   {
@@ -174,9 +175,23 @@ const DUMMY = [
   // }
 ];
 
+const depNames = [
+  "Computer Engineering",
+  "Information Technology",
+  "Civil Engineering",
+  "Mechanical Engineering",
+  "Electrical Engineering",
+  "Instrumentation Engineering",
+  "Leather Technology",
+  "Rubber Technology",
+];
+
+const semCounts = [1, 2, 3, 4, 5, 6];
+
 const CalculatorPage = () => {
   return (
     <Container>
+      <Header deps={depNames} sems={semCounts}></Header>
       <Table DATA={DUMMY} />
     </Container>
   );
