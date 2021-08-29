@@ -4,7 +4,7 @@ export const TableUL = styled.ul`
   margin: 0px;
   padding: 0px;
   width: 100%;
-  margin-top: 100px;
+  //margin-top: 100px;
 `;
 export const LI = styled.li`
   display: flex;
