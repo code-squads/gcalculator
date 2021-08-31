@@ -40,7 +40,7 @@ const Header = (props) => {
         </SemPart>
       </DepSemBox>
       <ButtonBox>
-        <AddRowButton>Add row&ensp;&nbsp;+</AddRowButton>
+        <AddRowButton onClick={props.addRowHandler}>Add row&ensp;&nbsp;+</AddRowButton>
         <PrintButton>&ensp;&nbsp;Print&ensp;&nbsp;</PrintButton>
       </ButtonBox>
     </HeaderBox>

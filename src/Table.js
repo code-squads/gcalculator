@@ -23,21 +23,35 @@ const Table = ({ DATA }) => {
   let totalMarks = 0;
   let totalEarnedMarks = 0;
 
-  const marksChangeHandler = (e, courseCode, type) => {
+  const marksChangeHandler = (e, courseCode, type, marksType) => {
     let newData = data.map((subject) => {
-      if (subject.courseCode === courseCode) {
-        var newSubject = Object.assign({}, subject);
-        if (e.target.value.length <= 0) {
-          newSubject[type].earnedMarks = 0;
-          return newSubject;
-        } else if (parseInt(e.target.value) > newSubject[type].maxMarks) {
-          newSubject[type].earnedMarks = newSubject[type].maxMarks;
-          return newSubject;
+        if (subject.courseCode === courseCode && marksType==='earnedMarks') {
+            var newSubject = Object.assign({}, subject);
+            if (e.target.value.length <= 0) {
+            newSubject[type][marksType] = 0;
+            return newSubject;
+            } else if (parseInt(e.target.value) > newSubject[type].maxMarks) {
+            newSubject[type][marksType] = newSubject[type].maxMarks;
+            return newSubject;
+            }
+            newSubject[type][marksType] = parseInt(e.target.value);
+            return newSubject;
         }
-        newSubject[type].earnedMarks = parseInt(e.target.value);
-        return newSubject;
-      }
-      return subject;
+        else if(subject.courseCode === courseCode) {
+            var newSubject = Object.assign({}, subject);
+            if (e.target.value.length <= 0) {
+                newSubject[type][marksType] = 0;
+                return newSubject;
+            }
+            if(marksType === 'minMarks') {
+                if(e.target.value > subject[type].maxMarks) {
+                    newSubject[type][marksType] = subject[type].maxMarks
+                    return newSubject
+                }
+            }
+            newSubject[type][marksType] = parseInt(e.target.value);
+        }
+        return subject;
     });
     setData(newData);
   };
@@ -82,41 +96,81 @@ const Table = ({ DATA }) => {
                 <MarksLabel>Earned</MarksLabel>
               </Marks>
               <Marks>
-                <MarksInput value={subject.theory.maxMarks} />
-                <MarksInput value={subject.theory.minMarks} />
+                <MarksInput 
+                    value={subject.theory.maxMarks} 
+                    onChange={(e) => {
+                        marksChangeHandler(e, subject.courseCode, "theory", "maxMarks");
+                    }}
+                />
+                <MarksInput 
+                    value={subject.theory.minMarks} 
+                    onChange={(e) => {
+                        marksChangeHandler(e, subject.courseCode, "theory", "minMarks");
+                    }}
+                />
                 <MarksInput
                   value={subject.theory.earnedMarks}
                   highlight={true}
                   onChange={(e) => {
-                    marksChangeHandler(e, subject.courseCode, "theory");
+                    marksChangeHandler(e, subject.courseCode, "theory", "earnedMarks");
                   }}
                 />
               </Marks>
               <Marks>
-                <MarksInput value={subject.practical.maxMarks} />
-                <MarksInput value={subject.practical.minMarks} />
+                <MarksInput 
+                    value={subject.practical.maxMarks} 
+                    onChange={(e) => {
+                        marksChangeHandler(e, subject.courseCode, "practical", "maxMarks");
+                    }}    
+                />
+                <MarksInput 
+                    value={subject.practical.minMarks} 
+                    onChange={(e) => {
+                        marksChangeHandler(e, subject.courseCode, "practical", "minMarks");
+                    }}
+                />
                 <MarksInput
                   value={subject.practical.earnedMarks}
                   highlight={true}
                   onChange={(e) => {
-                    marksChangeHandler(e, subject.courseCode, "practical");
+                    marksChangeHandler(e, subject.courseCode, "practical", "earnedMarks");
                   }}
                 />
               </Marks>
               <Marks>
-                <MarksInput value={subject.oral.maxMarks} />
-                <MarksInput value={subject.oral.minMarks} />
+                <MarksInput 
+                    value={subject.oral.maxMarks} 
+                    onChange={(e) => {
+                        marksChangeHandler(e, subject.courseCode, "oral", "maxMarks");
+                    }}
+                />
+                <MarksInput 
+                    value={subject.oral.minMarks} 
+                    onChange={(e) => {
+                        marksChangeHandler(e, subject.courseCode, "oral", "minMarks");
+                    }}
+                />
                 <MarksInput
                   value={subject.oral.earnedMarks}
                   highlight={true}
                   onChange={(e) => {
-                    marksChangeHandler(e, subject.courseCode, "oral");
+                    marksChangeHandler(e, subject.courseCode, "oral", "earnedMarks");
                   }}
                 />
               </Marks>
               <Marks>
-                <MarksInput value={subject.termwork.maxMarks} />
-                <MarksInput value={subject.termwork.minMarks} />
+                <MarksInput 
+                    value={subject.termwork.maxMarks} 
+                    onChange={(e) => {
+                        marksChangeHandler(e, subject.courseCode, "termwork", "maxMarks");
+                    }}
+                />
+                <MarksInput 
+                    value={subject.termwork.minMarks} 
+                    onChange={(e) => {
+                        marksChangeHandler(e, subject.courseCode, "termwork", "minMarks");
+                    }}
+                />
                 <MarksInput
                   value={subject.termwork.earnedMarks}
                   highlight={true}

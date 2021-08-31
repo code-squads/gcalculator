@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "./styledComponents/CalculatorPage";
 import Table from "./Table";
 import Header from "./Header";
@@ -189,10 +189,42 @@ const depNames = [
 const semCounts = [1, 2, 3, 4, 5, 6];
 
 const CalculatorPage = () => {
+  const [result, setResult] = useState(DUMMY)
+
+  const addRowHandler = () => {
+    let emptySubject =  {
+        courseCode: `Code${result.length+1}`,
+        courseTitle: `Subject${result.length+1}`,
+        theory: {
+          minMarks: 0,
+          maxMarks: 0,
+          earnedMarks: 0,
+        },
+        practical: {
+          minMarks: 0,
+          maxMarks: 0,
+          earnedMarks: 0,
+        },
+        oral: {
+          minMarks: 0,
+          maxMarks: 0,
+          earnedMarks: 0,
+        },
+        termwork: {
+          minMarks: 0,
+          maxMarks: 0,
+          earnedMarks: 0,
+        }
+    }
+    let tempData = [...result]
+    tempData.push(emptySubject)
+    setResult(tempData)
+  }
+
   return (
     <Container>
-      <Header deps={depNames} sems={semCounts}></Header>
-      <Table DATA={DUMMY} />
+      <Header deps={depNames} sems={semCounts} addRowHandler={addRowHandler}></Header>
+      <Table key={result} DATA={result}/>
     </Container>
   );
 };
