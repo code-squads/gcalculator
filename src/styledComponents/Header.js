@@ -66,14 +66,9 @@ export const AddRowButton = styled.button`
     background: linear-gradient(to bottom, #b753db 5%, #b566d2 100%);
     background-color: #b753db;
   }
-
-  &:active {
-    position: relative;
-    top: 1px;
-  }
 `;
 
-export const CalcPerButton = styled.button`
+export const PrintButton = styled.button`
   box-shadow: inset 0px 1px 3px 0px #1c69e6;
   background: linear-gradient(to bottom, #4185f3 5%, #4185f3 100%);
   background-color: #4185f3;
@@ -94,10 +89,5 @@ export const CalcPerButton = styled.button`
   &:hover {
     background: linear-gradient(to bottom, #4185f3 5%, #4185f3 100%);
     background-color: #4185f3;
-  }
-
-  &:active {
-    position: relative;
-    top: 1px;
   }
 `;

@@ -6,7 +6,7 @@ import {
   DepPart,
   SemPart,
   AddRowButton,
-  CalcPerButton,
+  PrintButton,
   ButtonBox,
 } from "./styledComponents/Header";
 
@@ -41,7 +41,7 @@ const Header = (props) => {
       </DepSemBox>
       <ButtonBox>
         <AddRowButton>Add row&ensp;&nbsp;+</AddRowButton>
-        <CalcPerButton>Calculate&ensp;&nbsp;%</CalcPerButton>
+        <PrintButton>&ensp;&nbsp;Print&ensp;&nbsp;</PrintButton>
       </ButtonBox>
     </HeaderBox>
   );
